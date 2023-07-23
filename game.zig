@@ -6,17 +6,8 @@ const std = @import("std");
 const Input = @import("input.zig");
 
 pub fn main() !void {
-    var allocator = std.heap.page_allocator;
+    std.debug.print("Game started\n", .{});
 
-    // Print a prompt to the console
-    try std.io.getStdOut().writer().print("Enter something: ", .{});
-
-    // Prepare a buffer for the input
-    var buffer: [512]u8 = undefined;
-
-    // Read input from the user
-    const line = try std.io.getStdIn().reader().readUntilDelimiterOrEof(&allocator, '\n', buffer[0..]);
-
-    // Print the input back to the console
-    try std.io.getStdOut().writer().print("You entered: {}\n", .{line});
+    // Use something from input.zig here. For example, if input.zig defines a function called handleInput:
+    try Input.handleInput();
 }
